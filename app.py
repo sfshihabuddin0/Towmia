@@ -1,15 +1,10 @@
-const express = require('express');
-const app = express();
+from flask import Flask
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
+app = Flask(__name__)
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log('Server is running...');
-});
+@app.route('/')
+def home():
+    return "Hello, Welcome to my website!"
 
-// Keep the app alive
-setInterval(() => {
-    require('http').get(`http://${process.env.PROJECT_DOMAIN}.glitch.me`);
-}, 3 * 60 * 1000); // every 3 minutes
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080)
