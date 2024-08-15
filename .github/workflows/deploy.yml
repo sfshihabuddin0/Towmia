@@ -18,5 +18,5 @@ jobs:
 
       - name: Run additional script
         run: |
-          python up.py
+          python main.py
           
